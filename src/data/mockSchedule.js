@@ -1,0 +1,72 @@
+// src/data/mockSchedule.js
+
+// Mock student profile
+export const mockStudent = {
+  id: "2023-00123",
+  name: "Sanji Vinsmoke",
+  course: "BS Computer Science",
+  yearLevel: "4th Year",
+  department: "Department of Computer Science",
+  college: "College of Information and Computing Sciences",
+  academicStatus: {
+    status: "Graduating",
+    allowedUnits: 30,
+    enrolledUnits: 29,
+    remainingUnits: 1,
+  },
+  accountExpiration: "2025-06-30",
+};
+
+// Mock enrolled subjects
+export const mockEnrolledSubjects = [
+  {
+    ALIAS: "CCC101",
+    DESCRIPTION: "Computer Programming 1",
+    UNITS: 3,
+    SECTION: "UuVv1",
+    SCHEDULE: "M 8:30-10:00 W 8:30-10:00",
+    ROOM: "Room 101",
+    FACULTY: "Prof. Smith",
+  },
+  {
+    ALIAS: "CCC100",
+    DESCRIPTION: "Fundamentals of Computing",
+    UNITS: 3,
+    SECTION: "B",
+    SCHEDULE: "M 10:30-13:00 W 10:00-11:30",
+    ROOM: "Room 204",
+    FACULTY: "Dr. Johnson",
+  },
+  {
+    ALIAS: "HIST110",
+    DESCRIPTION: "Philippine History",
+    UNITS: 2,
+    SECTION: "C",
+    SCHEDULE: "F 13:00-15:00 S 13:00-15:00",
+    ROOM: "Room 303",
+    FACULTY: "Dr. Reyes",
+  },
+  {
+    ALIAS: "IT202",
+    DESCRIPTION: "Database Management Systems",
+    UNITS: 3,
+    SECTION: "D",
+    SCHEDULE: "H 14:00-17:00",
+    ROOM: "Room 410",
+    FACULTY: "Engr. Tan",
+  },
+  {
+    ALIAS: "ENG103",
+    DESCRIPTION: "Technical Writing",
+    UNITS: 3,
+    SECTION: "E",
+    SCHEDULE: "T 13:00-14:30",
+    ROOM: "Room 120",
+    FACULTY: "Prof. Santos",
+  },
+];
+
+// Mock constants for grid
+export const mockDays = ["M", "T", "W", "H", "F", "S"];
+export const mockClassStartTime = 7;   // 7 AM
+export const mockClassEndTime = 19;    // 7 PM

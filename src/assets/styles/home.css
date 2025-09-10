@@ -1,0 +1,80 @@
+/* home layout */
+.home-container {
+  flex: 1; /* 🚀 take all leftover space */
+  display: grid;
+  grid-template-columns: 4fr 1fr; /* main vs right */
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "main right";
+  height: 100%;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* Main Content Area */
+.home-main {
+  grid-area: main; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.home-header {
+  grid-area: header; 
+  background: linear-gradient(135deg, #6a0d25, #ca4073);
+  border-radius: 20px;
+  padding: 2rem;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Right Panel */
+.home-right {
+  grid-area: right; /* Places the right panel in the 'right' area */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* General card styling to ensure uniform appearance and spacing */
+.glass-card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  height: min-content; /* This helps cards not to stretch and occupy only the space they need */
+}
+
+/* Ensure the Class Schedule card fills the available height */
+.class-schedule-card {
+  height: 100%;
+  flex-grow: 1; /* Allows the card to grow and fill remaining vertical space */
+}
+
+/* Right Panel */
+.home-right {
+  padding: 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* E-Library */
+.elibrary-card button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6a0d25, #ca4073);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.elibrary-card button:hover {
+  transform: scale(1.05);
+}

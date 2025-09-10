@@ -1,0 +1,51 @@
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(180deg, #6a0d25, #ca4073);
+  flex: 0 0 220px;
+  color: #fff;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 220px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  transition: 0.2s ease;
+  display: block;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: rgba(250, 250, 250, 0.25);
+}
+
+.logo {
+  width: 5rem;
+  height: auto;
+  border: #fff;
+  border: 1rem;
+  outline-color: #fff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 40px;
+}
+
+.brandIcon {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white; /* plain clean contrast on maroon */
+  margin: 0;
+}
