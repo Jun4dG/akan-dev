@@ -66,7 +66,41 @@ export const mockEnrolledSubjects = [
   },
 ];
 
-// Mock constants for grid
-export const mockDays = ["M", "T", "W", "H", "F", "S"];
-export const mockClassStartTime = 7;   // 7 AM
-export const mockClassEndTime = 19;    // 7 PM
+export const mockGrades = [
+  {
+    yearEnrolled: "2023",
+    semester: "1st Semester",
+    subjects: [
+      {
+        name: "CS101",
+        description: "Intro to Computer Science",
+        faculty: ["Prof. Juan Dela Cruz"],
+        units: 3,
+        grade: "1.75",
+        compGrade: "1.75"
+      },
+      {
+        name: "MATH101",
+        description: "College Algebra",
+        faculty: ["Prof. Maria Santos"],
+        units: 3,
+        grade: "INC",
+        compGrade: "INC"
+      }
+    ]
+  },
+  {
+    yearEnrolled: "2022",
+    semester: "2nd Semester",
+    subjects: [
+      {
+        name: "IT201",
+        description: "Database Systems",
+        faculty: ["Prof. Enrique Lopez"],
+        units: 4,
+        grade: "2.00",
+        compGrade: "2.00"
+      }
+    ]
+  }
+];

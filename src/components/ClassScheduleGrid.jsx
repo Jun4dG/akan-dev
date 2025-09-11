@@ -3,7 +3,7 @@ import { mockEnrolledSubjects } from "../data/mockSchedule.js";
 
 const ClassScheduleGrid = () => {
   const mockDays = ["M", "T", "W", "H", "F", "S", "A"];
-  const mockClassStartTime = 6; // 5 AM
+  const mockClassStartTime = 6; // 6 AM
   const mockClassEndTime = 20; // 7 PM
 
   // Parse schedules

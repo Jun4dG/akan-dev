@@ -3,7 +3,7 @@ import AcademicStatus from "./AcademicStatus";
 import Notices from "./Notices";
 import "../assets/styles/home.css";
 
-// Import your dummy data
+// dummy data
 import {
   mockStudent,
   mockEnrolledSubjects,
@@ -20,12 +20,7 @@ const Home = () => {
         <p>Stay updated with your academic journey.</p>
       </header>
 
-      <ClassScheduleGrid
-        enrolledSubjects={mockEnrolledSubjects}
-        days={mockDays}
-        classStartTime={mockClassStartTime}
-        classEndTime={mockClassEndTime}
-      />
+      <ClassScheduleGrid/>
 
       <aside className="home-right">
         <AcademicStatus />
