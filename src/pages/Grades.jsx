@@ -1,4 +1,4 @@
-import "../styles/grades.css"
+import "../assets/styles/grades.css"
 import { useState } from "react"
 import { mockGrades } from "../data/mockSchedule"
 
