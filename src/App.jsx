@@ -8,12 +8,23 @@ import OfflineNotice from "./components/OfflineNotice.jsx";
 import Sidebar from "./components/Sidebar.jsx";
 import Dashboard from "./components/Home.jsx";
 import Footer from "./components/Footer.jsx";
+import { useState } from "react";
 
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <Router>
       <div className="app-layout">
-        <Sidebar />
+        <button className="menu-toggle" onClick={toggleSidebar}>
+          ☰
+        </button>
+          
+        <Sidebar isOpen={sidebarOpen} />
 
         <div className="page-container">
           <div className="content-wrapper">

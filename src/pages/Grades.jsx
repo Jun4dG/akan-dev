@@ -6,31 +6,60 @@ export default function Grades() {
   const [grades] = useState(mockGrades)
   const [selectedYear, setSelectedYear] = useState(null)
 
+  // ✅ Decide which grade should be counted
+  const getValidGrade = (sub) => {
+    const grade = parseFloat(sub.grade)
+    const completed = parseFloat(sub.compGrade)
+
+    if (!isNaN(grade)) {
+      return grade
+    } else if (sub.grade === "INC") {
+      if (!isNaN(completed)) {
+        return completed
+      } else {
+        return null
+      }
+    } else if (sub.grade === "DRP" || sub.grade === "5.00") {
+      return 5.0
+    }
+    return null
+  }
+
   const calculateGPA = (subjects) => {
     let totalUnits = 0
     let weightedSum = 0
 
     subjects.forEach((sub) => {
-      if (!isNaN(parseFloat(sub.grade))) {
+      const validGrade = getValidGrade(sub)
+      if (validGrade !== null) {
         totalUnits += sub.units
-        weightedSum += parseFloat(sub.grade) * sub.units
+        weightedSum += validGrade * sub.units
       }
     })
 
     return totalUnits > 0 ? (weightedSum / totalUnits).toFixed(2) : "N/A"
   }
 
-  const calculateCGPA = () => {
+  // ✅ CGPA should only include grades from *previous semesters*
+  const calculateCGPA = (currentYear) => {
     let totalUnits = 0
     let weightedSum = 0
 
     grades.forEach((year) => {
-      year.subjects.forEach((sub) => {
-        if (!isNaN(parseFloat(sub.grade))) {
-          totalUnits += sub.units
-          weightedSum += parseFloat(sub.grade) * sub.units
-        }
-      })
+      // stop including future semesters
+      if (
+        year.yearEnrolled < currentYear.yearEnrolled ||
+        (year.yearEnrolled === currentYear.yearEnrolled &&
+          year.semester <= currentYear.semester)
+      ) {
+        year.subjects.forEach((sub) => {
+          const validGrade = getValidGrade(sub)
+          if (validGrade !== null) {
+            totalUnits += sub.units
+            weightedSum += validGrade * sub.units
+          }
+        })
+      }
     })
 
     return totalUnits > 0 ? (weightedSum / totalUnits).toFixed(2) : "N/A"
@@ -86,11 +115,11 @@ export default function Grades() {
                       <td
                         style={{
                           color:
-                            sub.grade === "INC" ||
-                            sub.grade === "DRP" ||
-                            sub.grade === "5.00"
-                              ? "red"
-                              : "black",
+                            sub.compGrade !== "5.0" &&
+                            !isNaN(parseFloat(sub.compGrade)) &&
+                            sub.grade === "INC"
+                              ? "green"
+                              : "red",
                         }}
                       >
                         {sub.compGrade}
@@ -106,7 +135,6 @@ export default function Grades() {
         <p>No Data yet available.</p>
       )}
 
-      {/* Modal */}
       {selectedYear && (
         <div className="modal-overlay" onClick={() => setSelectedYear(null)}>
           <div
@@ -120,7 +148,7 @@ export default function Grades() {
               <strong>GPA:</strong> {calculateGPA(selectedYear.subjects)}
             </p>
             <p>
-              <strong>CGPA:</strong> {calculateCGPA()}
+              <strong>CGPA:</strong> {calculateCGPA(selectedYear)}
             </p>
             <button
               className="close-btn"

@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import "../assets/styles/sidebar.css";
-import logo from "../assets/images/sidebar_logo.png"
+import logo from "../assets/images/sidebar_logo.png";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen }) => {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="brand">
         <img src={logo} alt="Main Logo" className="logo" />
         <h1 className="brandIcon">MSU-AKAN Student</h1>

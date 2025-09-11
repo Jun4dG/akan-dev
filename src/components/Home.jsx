@@ -5,11 +5,7 @@ import "../assets/styles/home.css";
 
 // dummy data
 import {
-  mockStudent,
-  mockEnrolledSubjects,
-  mockDays,
-  mockClassStartTime,
-  mockClassEndTime,
+  mockStudent
 } from "../data/mockSchedule";
 
 const Home = () => {

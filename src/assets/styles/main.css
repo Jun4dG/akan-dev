@@ -11,3 +11,24 @@
   min-height: 100vh;
   background: #f9f9fb;
 }
+
+.menu-toggle {
+  display: none;
+  background: #6a0d25;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}

@@ -1,81 +1,80 @@
 /* src/assets/styles/classScheduleGrid.css */
 
 .classschedgrid {
-background: rgba(255, 255, 255, 0.35); 
-backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(15px);
-border-radius: 20px;
-padding: 1rem;
-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-overflow-x: auto; 
+  background: rgba(255, 255, 255, 0.35); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; 
 }
 
 #student-schedule-grid {
-width: 100%;
-border-collapse: separate; 
-border-spacing: 6px; 
-table-layout: fixed;
-font-family: "Inter", Arial, sans-serif;
-margin-top: 0.5rem;
+  width: 100%;
+  border-collapse: separate; 
+  border-spacing: 6px; 
+  table-layout: fixed;
+  font-family: "Inter", Arial, sans-serif;
+  margin-top: 0.5rem;
 }
 
 #student-schedule-grid th,
 #student-schedule-grid td {
-text-align: center;
-vertical-align: middle;
-padding: 10px;
-font-size: 0.9rem;
-border-radius: 12px;
-transition: background 0.2s ease;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  transition: background 0.2s ease;
 }
 
 /* Header cells */
 #student-schedule-grid th {
-background: rgba(255, 255, 255, 0.25);
-font-weight: bolder;
-color: #6a0d25;
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: bolder;
+  color: #6a0d25;
 }
 
 /* Scheduled classes */
 #student-schedule-grid td.has-schedule {
-background: linear-gradient(135deg, #6a0d25, #ca4073);
-color: white;
-font-weight: bold;
-border-radius: 12px;
-box-shadow: 0 4px 12px rgba(106, 13, 37, 0.3);
+  background: linear-gradient(135deg, #6a0d25, #ca4073);
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(106, 13, 37, 0.3);
 }
 
 #student-schedule-grid td.has-schedule small {
-display: block;
-font-size: 0.75rem;
-font-weight: normal;
-color: #f0f0f0;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #f0f0f0;
 }
 
-
 #student-schedule-grid td.time-slot {
-position: relative;
-height: 100%;
-vertical-align: top;
-padding: 0;
+  position: relative;
+  height: 100%;
+  vertical-align: top;
+  padding: 0;
 }
 
 /* Subject blocks are absolute inside the cell */
 .subject-block {
-background: linear-gradient(135deg, #6a0d25, #ca4073);
-color: white;
-font-size: 0.75rem;
-border-radius: 6px;
-padding: 2px 4px;
-overflow: hidden;
-box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-margin-top: 1px;
+  background: linear-gradient(135deg, #6a0d25, #ca4073);
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  padding: 2px 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  margin-top: 1px;
 }
 
 .subject-block small {
-display: block;
-font-size: 0.65rem;
-font-weight: normal;
+  display: block;
+  font-size: 0.65rem;
+  font-weight: normal;
 }
 
 .time-col {
@@ -85,5 +84,21 @@ font-weight: normal;
 }
 
 .subject{
-    font-size: 12px;
+  font-size: 12px;
 }
+
+@media (max-width: 768px) {
+  table,
+  #student-schedule-grid {
+    font-size: 0.75rem;
+  }
+
+  th, td {
+    padding: 4px 6px;
+  }
+
+  table, #student-schedule-grid {
+    table-layout: auto; 
+  }
+}
+

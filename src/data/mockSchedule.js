@@ -64,31 +64,18 @@ export const mockEnrolledSubjects = [
     ROOM: "Room 120",
     FACULTY: "Prof. Santos",
   },
+  {
+    ALIAS: "NSTP001",
+    DESCRIPTION: "CWTS 1",
+    UNITS: 3,
+    SECTION: "E",
+    SCHEDULE: "A 5:00-8:00",
+    ROOM: "Room 120",
+    FACULTY: "Prof. Santos",
+  },
 ];
 
 export const mockGrades = [
-  {
-    yearEnrolled: "2023",
-    semester: "1st Semester",
-    subjects: [
-      {
-        name: "CS101",
-        description: "Intro to Computer Science",
-        faculty: ["Prof. Juan Dela Cruz"],
-        units: 3,
-        grade: "1.75",
-        compGrade: "1.75"
-      },
-      {
-        name: "MATH101",
-        description: "College Algebra",
-        faculty: ["Prof. Maria Santos"],
-        units: 3,
-        grade: "INC",
-        compGrade: "INC"
-      }
-    ]
-  },
   {
     yearEnrolled: "2022",
     semester: "2nd Semester",
@@ -99,7 +86,29 @@ export const mockGrades = [
         faculty: ["Prof. Enrique Lopez"],
         units: 4,
         grade: "2.00",
-        compGrade: "2.00"
+        compGrade: ""
+      }
+    ]
+  },
+  {
+    yearEnrolled: "2023",
+    semester: "1st Semester",
+    subjects: [
+      {
+        name: "CS101",
+        description: "Intro to Computer Science",
+        faculty: ["Prof. Juan Dela Cruz"],
+        units: 3,
+        grade: "INC",
+        compGrade: "1.75"
+      },
+      {
+        name: "MATH101",
+        description: "College Algebra",
+        faculty: ["Prof. Maria Santos"],
+        units: 3,
+        grade: "INC",
+        compGrade: "5.0"
       }
     ]
   }
