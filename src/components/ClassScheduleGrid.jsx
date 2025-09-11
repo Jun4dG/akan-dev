@@ -70,8 +70,6 @@ const ClassScheduleGrid = () => {
                         {subjects.map((s, idx) => (
                           <div key={idx} className="subject-block">
                             <b className="subject">{s.sub}</b>
-                            <br />
-                            <br />
                             <small>{s.room}</small>
                             <small>{s.faculty}</small>
                           </div>
