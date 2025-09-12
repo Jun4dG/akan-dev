@@ -1,20 +1,18 @@
-// src/data/mockSchedule.js
-
 // Mock student profile
 export const mockStudent = {
   id: "2023-00123",
   name: "Sanji Vinsmoke",
   course: "BS Computer Science",
   yearLevel: "4th Year",
-  department: "Department of Computer Science",
+  department: "Department of Computing Science",
   college: "College of Information and Computing Sciences",
   academicStatus: {
     status: "Graduating",
-    allowedUnits: 30,
-    enrolledUnits: 29,
-    remainingUnits: 1,
+    allowedUnits: 27,
+    enrolledUnits: 12,
+    remainingUnits: 0,
   },
-  accountExpiration: "2025-06-30",
+  accountExpiration: "January 28, 2028",
 };
 
 // Mock enrolled subjects

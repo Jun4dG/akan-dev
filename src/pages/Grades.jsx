@@ -1,164 +1,194 @@
-import "../assets/styles/grades.css"
-import { useState } from "react"
-import { mockGrades } from "../data/mockSchedule"
+import { useState } from "react";
+import { mockGrades } from "../data/mockSchedule";
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+  Paper,
+  Card,
+  CardContent,
+} from "@mui/material";
 
 export default function Grades() {
-  const [grades] = useState(mockGrades)
-  const [selectedYear, setSelectedYear] = useState(null)
+  const [grades] = useState(mockGrades);
+  const [selectedYear, setSelectedYear] = useState(null);
 
-  // ✅ Decide which grade should be counted
   const getValidGrade = (sub) => {
-    const grade = parseFloat(sub.grade)
-    const completed = parseFloat(sub.compGrade)
+    const grade = parseFloat(sub.grade);
+    const completed = parseFloat(sub.compGrade);
 
     if (!isNaN(grade)) {
-      return grade
+      return grade;
     } else if (sub.grade === "INC") {
       if (!isNaN(completed)) {
-        return completed
+        return completed;
       } else {
-        return null
+        return null;
       }
     } else if (sub.grade === "DRP" || sub.grade === "5.00") {
-      return 5.0
+      return 5.0;
     }
-    return null
-  }
+    return null;
+  };
 
   const calculateGPA = (subjects) => {
-    let totalUnits = 0
-    let weightedSum = 0
+    let totalUnits = 0;
+    let weightedSum = 0;
 
     subjects.forEach((sub) => {
-      const validGrade = getValidGrade(sub)
+      const validGrade = getValidGrade(sub);
       if (validGrade !== null) {
-        totalUnits += sub.units
-        weightedSum += validGrade * sub.units
+        totalUnits += sub.units;
+        weightedSum += validGrade * sub.units;
       }
-    })
+    });
 
-    return totalUnits > 0 ? (weightedSum / totalUnits).toFixed(2) : "N/A"
-  }
+    return totalUnits > 0 ? (weightedSum / totalUnits).toFixed(2) : "N/A";
+  };
 
-  // ✅ CGPA should only include grades from *previous semesters*
   const calculateCGPA = (currentYear) => {
-    let totalUnits = 0
-    let weightedSum = 0
+    let totalUnits = 0;
+    let weightedSum = 0;
 
     grades.forEach((year) => {
-      // stop including future semesters
       if (
         year.yearEnrolled < currentYear.yearEnrolled ||
         (year.yearEnrolled === currentYear.yearEnrolled &&
           year.semester <= currentYear.semester)
       ) {
         year.subjects.forEach((sub) => {
-          const validGrade = getValidGrade(sub)
+          const validGrade = getValidGrade(sub);
           if (validGrade !== null) {
-            totalUnits += sub.units
-            weightedSum += validGrade * sub.units
+            totalUnits += sub.units;
+            weightedSum += validGrade * sub.units;
           }
-        })
+        });
       }
-    })
+    });
 
-    return totalUnits > 0 ? (weightedSum / totalUnits).toFixed(2) : "N/A"
-  }
+    return totalUnits > 0 ? (weightedSum / totalUnits).toFixed(2) : "N/A";
+  };
 
   return (
-    <div className="grades-page">
+    <Box sx={{ p: 3 }}>
       {grades.length > 0 ? (
         grades.map((year, idx) => (
-          <div key={idx} className="panel">
-            <div className="panel-heading">
-              <h3>
-                {year.yearEnrolled} - {year.semester}
-              </h3>
-              <button
-                className="grade-btn"
-                onClick={() => setSelectedYear(year)}
+          <Card
+            key={idx}
+            sx={{
+              mb: 3,
+              maxWidth: 1000,
+              mx: "auto",
+              boxShadow: 3,
+              borderRadius: 2,
+            }}
+          >
+            <CardContent>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  mb: 2,
+                }}
               >
-                View GPA | CGPA
-              </button>
-            </div>
-            <div className="panel-body">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Subject</th>
-                    <th>Descriptive Title</th>
-                    <th>Faculty Assigned</th>
-                    <th>Units</th>
-                    <th>Final</th>
-                    <th>Completed</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {year.subjects.map((sub, sIdx) => (
-                    <tr key={sIdx}>
-                      <td>{sub.name}</td>
-                      <td>{sub.description}</td>
-                      <td>{sub.faculty.join(", ")}</td>
-                      <td>{sub.units.toFixed(2)}</td>
-                      <td
-                        style={{
-                          color:
-                            sub.grade === "INC" ||
-                            sub.grade === "DRP" ||
-                            sub.grade === "5.00"
-                              ? "red"
-                              : "black",
-                        }}
-                      >
-                        {sub.grade}
-                      </td>
-                      <td
-                        style={{
-                          color:
-                            sub.compGrade !== "5.0" &&
-                            !isNaN(parseFloat(sub.compGrade)) &&
-                            sub.grade === "INC"
-                              ? "green"
-                              : "red",
-                        }}
-                      >
-                        {sub.compGrade}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+                <Typography variant="h6">
+                  {year.yearEnrolled} - {year.semester}
+                </Typography>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => setSelectedYear(year)}
+                >
+                  View GPA | CGPA
+                </Button>
+              </Box>
+
+              <TableContainer component={Paper} sx={{ borderRadius: 2 }}>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Subject</TableCell>
+                      <TableCell>Descriptive Title</TableCell>
+                      <TableCell>Faculty Assigned</TableCell>
+                      <TableCell>Units</TableCell>
+                      <TableCell>Final</TableCell>
+                      <TableCell>Completed</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {year.subjects.map((sub, sIdx) => (
+                      <TableRow key={sIdx}>
+                        <TableCell>{sub.name}</TableCell>
+                        <TableCell>{sub.description}</TableCell>
+                        <TableCell>{sub.faculty.join(", ")}</TableCell>
+                        <TableCell>{sub.units.toFixed(2)}</TableCell>
+                        <TableCell
+                          sx={{
+                            color:
+                              sub.grade === "INC" ||
+                              sub.grade === "DRP" ||
+                              sub.grade === "5.00"
+                                ? "error.main"
+                                : "text.primary",
+                          }}
+                        >
+                          {sub.grade}
+                        </TableCell>
+                        <TableCell
+                          sx={{
+                            color:
+                              sub.compGrade !== "5.0" &&
+                              !isNaN(parseFloat(sub.compGrade)) &&
+                              sub.grade === "INC"
+                                ? "success.main"
+                                : "error.main",
+                          }}
+                        >
+                          {sub.compGrade}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </CardContent>
+          </Card>
         ))
       ) : (
-        <p>No Data yet available.</p>
+        <Typography align="center">No Data yet available.</Typography>
       )}
 
-      {selectedYear && (
-        <div className="modal-overlay" onClick={() => setSelectedYear(null)}>
-          <div
-            className="modal-content glass-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2>
-              GPA & CGPA - {selectedYear.yearEnrolled} {selectedYear.semester}
-            </h2>
-            <p>
-              <strong>GPA:</strong> {calculateGPA(selectedYear.subjects)}
-            </p>
-            <p>
-              <strong>CGPA:</strong> {calculateCGPA(selectedYear)}
-            </p>
-            <button
-              className="close-btn"
-              onClick={() => setSelectedYear(null)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  )
+      {/* GPA / CGPA Dialog */}
+      <Dialog open={Boolean(selectedYear)} onClose={() => setSelectedYear(null)}>
+        <DialogTitle>
+          GPA & CGPA -{" "}
+          {selectedYear && `${selectedYear.yearEnrolled} ${selectedYear.semester}`}
+        </DialogTitle>
+        <DialogContent>
+          <Typography>
+            <strong>GPA:</strong>{" "}
+            {selectedYear && calculateGPA(selectedYear.subjects)}
+          </Typography>
+          <Typography>
+            <strong>CGPA:</strong>{" "}
+            {selectedYear && calculateCGPA(selectedYear)}
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setSelectedYear(null)}>Close</Button>
+        </DialogActions>
+      </Dialog>
+    </Box>
+  );
 }

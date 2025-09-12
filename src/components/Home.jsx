@@ -1,33 +1,73 @@
-import ClassScheduleGrid from "./ClassScheduleGrid";
+import {
+  Grid,
+  Box,
+  Paper,
+  Typography,
+  Avatar,
+  Card,
+  CardContent,
+  Stack,
+} from "@mui/material";
 import AcademicStatus from "./AcademicStatus";
 import Notices from "./Notices";
-import "../assets/styles/home.css";
+import { mockStudent } from "../data/mockSchedule";
+import ClassScheduleGrid from "./ClassScheduleGrid";
+import ELibrary from "./E-LibraryLinkages";
 
-// dummy data
-import {
-  mockStudent
-} from "../data/mockSchedule";
-
-const Home = () => {
+export default function Home() {
   return (
-    <div className="home-container">
-      <header className="home-header">
-        <h2>Welcome back, {mockStudent.name}!</h2>
-        <p>Stay updated with your academic journey.</p>
-      </header>
+    <Box
+      sx={{
+        p: { xs: 1, sm: 2, md: 3 },
+        bgcolor: "background.default",
+        minHeight: "100vh",
+      }}
+    >
+      {/* Welcome Card */}
+      <Card
+        sx={{
+          mb: 3,
+          backgroundColor: "primary.dark",
+          color: "white",
+          borderRadius: 2,
+          boxShadow: 3,
+        }}
+      >
+        <CardContent sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Avatar sx={{ width: 56, height: 56, bgcolor: "gray" }}>
+            {mockStudent.name[0]}
+          </Avatar>
+          <Box>
+            <Typography variant="h6" fontWeight="bold">
+              Welcome back, {mockStudent.name}!
+            </Typography>
+            <Typography variant="body2" color="white">
+              Student Portal · Mindanao State University
+            </Typography>
+          </Box>
+        </CardContent>
+      </Card>
 
-      <ClassScheduleGrid/>
+      {/* The main layout using the new MUI v5 Grid */}
+      <Grid container spacing={2}>
+        <Grid size={{xs: 12, md: 9}}>
+          <ClassScheduleGrid />
+        </Grid>
 
-      <aside className="home-right">
-        <AcademicStatus />
-        <Notices />
-        <div className="elibrary-card glass-card">
-          <h3>E-Library</h3>
-          <button>Go to Library</button>
-        </div>
-      </aside>
-    </div>
+        <Grid size={{xs: 12, md: 3}}>
+          <Stack spacing={2}>
+            <Paper>
+              <AcademicStatus />
+            </Paper>
+            <Paper>
+              <Notices />
+            </Paper>
+            <Paper>
+              <ELibrary />
+            </Paper>
+          </Stack>
+        </Grid>
+      </Grid>
+    </Box>
   );
-};
-
-export default Home;
+}
