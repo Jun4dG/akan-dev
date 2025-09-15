@@ -98,14 +98,24 @@ export default function Evaluation() {
           </AccordionSummary>
           <AccordionDetails>
             <TableContainer component={Paper}>
-              <Table size="small">
+              <Table
+                size={isMobile ? "small" : "medium"}
+                sx={{
+                  tableLayout: "auto", 
+                  "& .MuiTableCell-root": {
+                    fontSize: isMobile ? "0.5rem" : "1rem",
+                    padding: isMobile ? "1px 2px" : "8px 12px",
+                    whiteSpace: "normal", 
+                    wordBreak: "break-word", 
+                  },
+                }}>
                 <TableHead>
-                  <TableRow>
-                    <TableCell>Subject</TableCell>
-                    <TableCell>Description</TableCell>
-                    <TableCell>Units</TableCell>
-                    <TableCell>Grade</TableCell>
-                    <TableCell>Number Taken</TableCell>
+                  <TableRow sx={{ bgcolor: 'grey.200' }}>
+                    <TableCell sx={{ width: "12%" }}>Course</TableCell>
+                    <TableCell sx={{ width: "40%" }}>Description</TableCell>
+                    <TableCell sx={{ width: "10%" }}>Units</TableCell>
+                    <TableCell sx={{ width: "10%" }}>Grade</TableCell>
+                    <TableCell sx={{ width: "10%" }}>Number Taken</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>

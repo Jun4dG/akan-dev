@@ -144,8 +144,8 @@ export const mockEvaluationData = [
 export const mockComposites = [
   {
     category: "General Education Electives",
-    required: 9,
-    completed: 6,
+    required: 3,
+    completed: 2,
     subjects: [
       { alias: "HIST101", description: "World History", units: 3, grade: "2.00", numTaken: 1 },
       { alias: "PSYCH101", description: "General Psychology", units: 3, grade: "1.75", numTaken: 1 },
@@ -154,7 +154,7 @@ export const mockComposites = [
   {
     category: "PE",
     required: 8,
-    completed: 4,
+    completed: 2,
     subjects: [
       { alias: "PE101", description: "Physical Fitness", units: 2, grade: "1.25", numTaken: 1 },
       { alias: "PE102", description: "Rhythmic Activities", units: 2, grade: "1.50", numTaken: 1 },
@@ -162,8 +162,8 @@ export const mockComposites = [
   },
   {
     category: "NSTP",
-    required: 6,
-    completed: 3,
+    required: 2,
+    completed: 1,
     subjects: [
       { alias: "NSTP001", description: "CWTS 1", units: 3, grade: "1.50", numTaken: 1 },
     ],
