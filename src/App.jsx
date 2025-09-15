@@ -30,11 +30,11 @@ function App() {
   return (
     <Router>
       <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-        {/* ✅ AppBar only on mobile */}
+        {/* AppBar only on mobile */}
         <AppBar
           position="fixed"
           sx={{
-            display: { xs: "block", sm: "none" }, // show only on mobile
+            display: { xs: "block", sm: "none" },
           }}
         >
           <Toolbar>
@@ -46,7 +46,7 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap component="div">
+            <Typography variant="h7" noWrap component="div">
               MSU-AKAN Student
             </Typography>
           </Toolbar>

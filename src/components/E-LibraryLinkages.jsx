@@ -10,12 +10,12 @@ const ELibrary = () => {
     }}>
       <Box sx={{
         p: 2,
-        bgcolor: 'primary.dark',
+        bgcolor: 'primary.main',
         color: 'primary.contrastText',
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
       }}>
-        <Typography variant="h6" fontWeight="bold">
+        <Typography variant="h7" fontWeight="bold">
           e-Library Linkages
         </Typography>                
       </Box>

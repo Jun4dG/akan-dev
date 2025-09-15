@@ -24,7 +24,7 @@ import {
   Divider
 } from "@mui/material";
 
-export default function Grades() {
+const Grades = () => {
   const [grades] = useState(mockGrades);
   const [selectedYear, setSelectedYear] = useState(null);
   const theme = useTheme();
@@ -239,3 +239,5 @@ export default function Grades() {
     </Box>
   );
 }
+
+export default Grades;

@@ -14,7 +14,7 @@ import { mockStudent } from "../data/mockSchedule";
 import ClassScheduleGrid from "./ClassScheduleGrid";
 import ELibrary from "./E-LibraryLinkages";
 
-export default function Home() {
+const  Home = () => {
   return (
     <Box
       sx={{
@@ -27,7 +27,7 @@ export default function Home() {
       <Card
         sx={{
           mb: 3,
-          backgroundColor: "primary.dark",
+          backgroundColor: "primary.main",
           color: "white",
           borderRadius: 2,
           boxShadow: 3,
@@ -71,3 +71,5 @@ export default function Home() {
     </Box>
   );
 }
+
+export default Home;

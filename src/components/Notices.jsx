@@ -12,18 +12,17 @@ const Notices = () => {
     }}>
     <Box sx={{
             p: 2,
-            bgcolor: 'primary.dark',
+            bgcolor: 'primary.main',
             color: 'primary.contrastText',
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,
           }}>
-    <Typography variant="h6" fontWeight="bold" gutterBottom>
+    <Typography variant="h7" fontWeight="bold" gutterBottom>
         Account Expiration
     </Typography>
     </Box>
-      <Divider sx={{ mb: 2 }} />
+      <Divider />
       <CardContent>
-        
         <Typography variant="body1">
           Your student akan account will expire on {mockStudent.accountExpiration}.
         </Typography>

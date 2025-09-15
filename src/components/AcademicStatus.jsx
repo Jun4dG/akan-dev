@@ -9,26 +9,23 @@ const AcademicStatus = () => {
     <Card sx={{ 
       boxShadow: 3, 
       borderRadius: 2, 
-      bgcolor: 'background.paper', // Default background for the rest of the card
-      color: 'text.primary' // Default text color
+      bgcolor: 'background.paper', 
+      color: 'text.primary' 
     }}>
       <Box sx={{
         p: 2,
-        bgcolor: 'primary.dark',
+        bgcolor: 'primary.main',
         color: 'primary.contrastText',
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
       }}>
-        <Typography variant="h6" component="div" fontWeight="bold">
+        <Typography variant="h7" component="div" fontWeight="bold">
           Current Academic Status
-        </Typography>
-        <Typography variant="body1">
-            <small>The following is your academic status as of this current semester:</small>
         </Typography>
       </Box>
       <Divider />
       <CardContent>
-        <Stack spacing={1}>
+        <Stack>
           <Typography variant="body1">
             <strong>Year:</strong> {yearLevel}
           </Typography>

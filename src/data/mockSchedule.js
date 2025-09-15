@@ -111,3 +111,61 @@ export const mockGrades = [
     ]
   }
 ];
+
+export const mockEvaluationData = [
+  {
+    yearLevel: "1st Year",
+    semester: "1st Semester",
+    subjects: [
+      { alias: "ENG101", description: "English Communication 1", units: 3, grade: "1.75", numTaken: 1 },
+      { alias: "MATH101", description: "College Algebra", units: 3, grade: "5.0", numTaken: 2 },
+      { alias: "PE101", description: "Physical Fitness", units: 2, grade: "1.25", numTaken: 1 },
+    ],
+  },
+  {
+    yearLevel: "2nd Year",
+    semester: "2nd Semester",
+    subjects: [
+      { alias: "CS201", description: "Data Structures", units: 3, grade: "2.00", numTaken: 1 },
+      { alias: "NSTP002", description: "CWTS 2", units: 3, grade: "1.50", numTaken: 1 },
+    ],
+  },
+  {
+    yearLevel: "3rd Year",
+    semester: "1st Semester",
+    subjects: [
+      { alias: "IT301", description: "Operating Systems", units: 4, grade: "1.75", numTaken: 1 },
+      { alias: "STAT101", description: "Probability and Statistics", units: 3, grade: "2.00", numTaken: 1 },
+    ],
+  },
+];
+
+// Composite groups (like electives, PE, NSTP)
+export const mockComposites = [
+  {
+    category: "General Education Electives",
+    required: 9,
+    completed: 6,
+    subjects: [
+      { alias: "HIST101", description: "World History", units: 3, grade: "2.00", numTaken: 1 },
+      { alias: "PSYCH101", description: "General Psychology", units: 3, grade: "1.75", numTaken: 1 },
+    ],
+  },
+  {
+    category: "PE",
+    required: 8,
+    completed: 4,
+    subjects: [
+      { alias: "PE101", description: "Physical Fitness", units: 2, grade: "1.25", numTaken: 1 },
+      { alias: "PE102", description: "Rhythmic Activities", units: 2, grade: "1.50", numTaken: 1 },
+    ],
+  },
+  {
+    category: "NSTP",
+    required: 6,
+    completed: 3,
+    subjects: [
+      { alias: "NSTP001", description: "CWTS 1", units: 3, grade: "1.50", numTaken: 1 },
+    ],
+  },
+];
