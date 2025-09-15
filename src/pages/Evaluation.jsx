@@ -29,10 +29,6 @@ export default function Evaluation() {
         minHeight: "100vh",
       }}
     >
-      <Typography variant="h5" gutterBottom fontWeight="bold">
-        Evaluation
-      </Typography>
-
       {/* Year-Level + Semester Evaluations */}
       {mockEvaluationData.map((evaluation, idx) => (
         <Accordion key={idx} defaultExpanded>
