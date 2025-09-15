@@ -53,12 +53,12 @@ export default function Evaluation() {
               >
                 <TableHead>
                   <TableRow sx={{ bgcolor: 'grey.200' }}>
-                    <TableCell sx={{ width: "12%" }}>Course</TableCell>
-                    <TableCell sx={{ width: "40%" }}>Description</TableCell>
-                    <TableCell sx={{ width: "10%" }}>Units</TableCell>
-                    <TableCell sx={{ width: "10%" }}>Grade</TableCell>
-                    <TableCell sx={{ width: "10%" }}>Number Taken</TableCell>
-                    <TableCell sx={{ width: "15%" }}>Action</TableCell>
+                    <TableCell sx={{ width: "12%", fontWeight: 'bold' }}>Course</TableCell>
+                    <TableCell sx={{ width: "40%", fontWeight: 'bold' }}>Description</TableCell>
+                    <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Units</TableCell>
+                    <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Grade</TableCell>
+                    <TableCell sx={{ width: "12%", fontWeight: 'bold' }}>Number Taken</TableCell>
+                    <TableCell sx={{ width: "15%", fontWeight: 'bold' }}>Action</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -111,11 +111,11 @@ export default function Evaluation() {
                 }}>
                 <TableHead>
                   <TableRow sx={{ bgcolor: 'grey.200' }}>
-                    <TableCell sx={{ width: "12%" }}>Course</TableCell>
-                    <TableCell sx={{ width: "40%" }}>Description</TableCell>
-                    <TableCell sx={{ width: "10%" }}>Units</TableCell>
-                    <TableCell sx={{ width: "10%" }}>Grade</TableCell>
-                    <TableCell sx={{ width: "10%" }}>Number Taken</TableCell>
+                    <TableCell sx={{ width: "12%", fontWeight: 'bold' }}>Course</TableCell>
+                    <TableCell sx={{ width: "40%", fontWeight: 'bold' }}>Description</TableCell>
+                    <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Units</TableCell>
+                    <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Grade</TableCell>
+                    <TableCell sx={{ width: "12%", fontWeight: 'bold' }}>Number Taken</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>

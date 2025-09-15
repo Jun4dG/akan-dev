@@ -127,12 +127,12 @@ const Grades = () => {
                   <Table>
                     <TableHead sx={{ bgcolor: 'grey.200' }}>
                       <TableRow>
-                        <TableCell>Subject</TableCell>
-                        <TableCell>Descriptive Title</TableCell>
-                        <TableCell>Faculty Assigned</TableCell>
-                        <TableCell>Units</TableCell>
-                        <TableCell>Final</TableCell>
-                        <TableCell>Completed</TableCell>
+                        <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Subject</TableCell>
+                        <TableCell sx={{ width: "40%%", fontWeight: 'bold' }}>Descriptive Title</TableCell>
+                        <TableCell sx={{ width: "25%", fontWeight: 'bold' }}>Faculty Assigned</TableCell>
+                        <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Units</TableCell>
+                        <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Final</TableCell>
+                        <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Completed</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
