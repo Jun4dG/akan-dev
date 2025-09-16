@@ -23,8 +23,7 @@ export default function Schedule() {
     <Box
       sx={{
         p: { xs: 1, sm: 2, md: 3 },
-        bgcolor: "background.default",
-        minHeight: "100vh",
+        bgcolor: "background.default"
       }}
     >
       {/* Top Table: Schedule Information */}
@@ -38,13 +37,12 @@ export default function Schedule() {
             "& th": {
               bgcolor: "grey.200",
               color: "black",
-              textAlign: "center",
               padding: "6px",
+              fontWeight: "bold",
               fontSize: { xs: "0.7rem", sm: "0.85rem" },
             },
             "& td": {
-              textAlign: "center",
-              padding: "2px",
+              padding: "4px",
               fontSize: { xs: "0.65rem", sm: "0.8rem" },
               wordWrap: "break-word",
               maxWidth: { xs: 60, sm: 100 },
@@ -53,12 +51,12 @@ export default function Schedule() {
         >
           <TableHead>
             <TableRow>
-              <TableCell>Course</TableCell>
-              <TableCell>Description</TableCell>
-              <TableCell>Units</TableCell>
-              <TableCell>Section</TableCell>
-              <TableCell>Schedule</TableCell>
-              <TableCell>Room</TableCell>
+              <TableCell sx={{ width: "15%"}} >Course</TableCell>
+              <TableCell sx={{ width: "40%"}} >Description</TableCell>
+              <TableCell sx={{ width: "10%"}} >Units</TableCell>
+              <TableCell sx={{ width: "10%"}} >Section</TableCell>
+              <TableCell sx={{ width: "20%"}} >Schedule</TableCell>
+              <TableCell sx={{ width: "15%"}} >Room</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
