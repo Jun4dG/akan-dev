@@ -12,7 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 import Grades from "./pages/Grades.jsx";
 import Evaluation from "./pages/Evaluation.jsx";
-import Schedule from "./components/ClassScheduleGrid.jsx";
+import Schedule from "./pages/Schedule.jsx";
 import Billing from "./pages/Billing.jsx";
 import Profile from "./pages/Profile.jsx";
 import OfflineNotice from "./components/OfflineNotice.jsx";

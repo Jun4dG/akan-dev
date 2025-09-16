@@ -63,7 +63,7 @@ export const mockEnrolledSubjects = [
     FACULTY: "Prof. Santos",
   },
   {
-    ALIAS: "NSTP001",
+    ALIAS: "NST001",
     DESCRIPTION: "CWTS 1",
     UNITS: 3,
     SECTION: "E",

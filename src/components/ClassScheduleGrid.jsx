@@ -106,7 +106,7 @@ export default function ClassScheduleGrid() {
                       <TableCell key={`${d}-${hour}`}>
                         {subjects.map((s, idx) => (
                           <Box key={idx} sx={{ mb: 1, borderRadius: 1, color: "white", boxShadow: 1, bgcolor: "primary.light"}}>
-                            <Typography variant="body2" sx={{ fontSize: { xs: "100%"} }}>
+                            <Typography variant="body2" sx={{ fontSize: { xs: "90%"} }}>
                               {s.sub}
                             </Typography>
                           </Box>
