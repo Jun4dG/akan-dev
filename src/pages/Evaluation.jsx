@@ -42,11 +42,23 @@ export default function Evaluation() {
               <Table
                 size={isMobile ? "small" : "medium"}
                 sx={{
-                  tableLayout: "auto", 
+                  tableLayout: "fixed",
+                  width: "100%", 
+                  "& th": {
+                    bgcolor: "grey.200",
+                    color: "black",
+                    padding: "4px",
+                    fontSize: { xs: "0.7rem", sm: "0.85rem" },
+                  },
+                  "& td": {
+                    padding: "4px",
+                    fontSize: { xs: "0.65rem", sm: "0.8rem" },
+                    wordWrap: "break-word",
+                    maxWidth: { xs: 60, sm: 100 },
+                  },
                   "& .MuiTableCell-root": {
-                    fontSize: isMobile ? "0.5rem" : "1rem",
-                    padding: isMobile ? "1px 2px" : "8px 12px",
-                    whiteSpace: "normal", 
+                    fontSize: isMobile ? "0.5rem" : "0.85rem",
+                    padding: isMobile ? "1px 2px" : "6px 10px",
                     wordBreak: "break-word", 
                   },
                 }}
@@ -102,6 +114,19 @@ export default function Evaluation() {
                 size={isMobile ? "small" : "medium"}
                 sx={{
                   tableLayout: "auto", 
+                  width: "100%", 
+                  "& th": {
+                    bgcolor: "grey.200",
+                    color: "black",
+                    padding: "4px",
+                    fontSize: { xs: "0.7rem", sm: "0.85rem" },
+                  },
+                  "& td": {
+                    padding: "4px",
+                    fontSize: { xs: "0.65rem", sm: "0.8rem" },
+                    wordWrap: "break-word",
+                    maxWidth: { xs: 60, sm: 100 },
+                  },
                   "& .MuiTableCell-root": {
                     fontSize: isMobile ? "0.5rem" : "1rem",
                     padding: isMobile ? "1px 2px" : "8px 12px",
@@ -111,7 +136,7 @@ export default function Evaluation() {
                 }}>
                 <TableHead>
                   <TableRow sx={{ bgcolor: 'grey.200' }}>
-                    <TableCell sx={{ width: "12%", fontWeight: 'bold' }}>Course</TableCell>
+                    <TableCell sx={{ width: "15%", fontWeight: 'bold' }}>Course</TableCell>
                     <TableCell sx={{ width: "40%", fontWeight: 'bold' }}>Description</TableCell>
                     <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Units</TableCell>
                     <TableCell sx={{ width: "10%", fontWeight: 'bold' }}>Grade</TableCell>

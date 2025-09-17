@@ -11,7 +11,6 @@ import {
   Typography,
 } from "@mui/material";
 
-// Importing MUI icons
 import HomeIcon from "@mui/icons-material/Home";
 import GradeIcon from "@mui/icons-material/Grade";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
@@ -32,18 +31,17 @@ const Sidebar = ({ onNavigate }) => {
   ];
 
   return (
-    <Box sx={{ width: 240 }}>
+    <Box sx={{ width: 200 }}>
       {/* Top Logo/Brand */}
       <Toolbar
         sx={{
-          display: "flex",
+          marginTop: 2,
           flexDirection: "column",
-          alignItems: "center",
-          py: 2,
+          alignItems: "center"
         }}
       >
-        <img src={logo} alt="Main Logo" style={{ width: 80, marginBottom: 8 }} />
-        <Typography variant="h6" noWrap>
+        <img src={logo} alt="Main Logo" style={{ width: 50, marginBottom: 4 }} />
+        <Typography variant="subtitle1" noWrap>
           MSU-AKAN Student
         </Typography>
       </Toolbar>
@@ -58,6 +56,7 @@ const Sidebar = ({ onNavigate }) => {
               to={path}
               onClick={onNavigate}
               sx={{
+                px: 1.5,
                 "&.active": {
                   bgcolor: "primary.main",
                   color: "white",
@@ -67,7 +66,7 @@ const Sidebar = ({ onNavigate }) => {
               }}
             >
               <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={text} primaryTypographyProps={{ fontSize: "0.85rem"}} />
             </ListItemButton>
           </ListItem>
         ))}

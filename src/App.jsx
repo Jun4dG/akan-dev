@@ -29,7 +29,7 @@ function App() {
 
   return (
     <Router>
-      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      <Box sx={{ display: "flex" }}>
         {/* AppBar only on mobile */}
         <AppBar
           position="fixed"
@@ -60,7 +60,7 @@ function App() {
           ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": { width: 240 },
+            "& .MuiDrawer-paper": { width: 200 },
           }}
         >
           <Sidebar onNavigate={toggleSidebar} />
@@ -71,7 +71,7 @@ function App() {
           variant="permanent"
           sx={{
             display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": { width: 240, boxSizing: "border-box" },
+            "& .MuiDrawer-paper": { width: 200, boxSizing: "border-box" },
           }}
           open
         >
@@ -83,9 +83,9 @@ function App() {
           component="main"
           sx={{
             flexGrow: 1,
-            p: { xs: 1, sm: 3 }, // less padding on mobile
-            ml: { sm: "240px" }, // push content for sidebar on desktop
-            mt: { xs: 8, sm: 0 }, // top margin only on mobile (for AppBar)
+            p: { xs: 1, sm: 0 }, 
+            ml: { sm: "210px" },  
+            mt: { xs: 8, sm: 0 }, 
           }}
         >
           <Routes>
