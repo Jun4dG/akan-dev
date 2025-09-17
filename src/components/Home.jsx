@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import AcademicStatus from "./AcademicStatus";
 import Notices from "./Notices";
-import { mockStudent } from "../data/mockSchedule";
+import { mockProfileData } from "../data/mockSchedule";
 import ClassScheduleGrid from "./ClassScheduleGrid";
 import ELibrary from "./E-LibraryLinkages";
 
@@ -35,11 +35,11 @@ const  Home = () => {
       >
         <CardContent sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Avatar sx={{ width: 56, height: 56, bgcolor: "gray" }}>
-            {mockStudent.name[0]}
+            {mockProfileData.firstName[0]}
           </Avatar>
           <Box>
             <Typography variant="h6" fontWeight="bold">
-              Welcome back, {mockStudent.name}!
+              Welcome back, {mockProfileData.firstName}!
             </Typography>
             <Typography variant="body2" color="white">
               Student Portal · Mindanao State University
@@ -48,7 +48,7 @@ const  Home = () => {
         </CardContent>
       </Card>
 
-      {/* The main layout using the new MUI v5 Grid */}
+      {/* The main layout */}
       <Grid container spacing={2}>
         <Grid size={{xs: 12, md: 9}}>
           <ClassScheduleGrid />

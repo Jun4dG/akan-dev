@@ -72,7 +72,6 @@ export default function ClassScheduleGrid() {
               fontSize: { xs: "0.7rem", sm: "0.85rem" },
             },
             "& td": {
-              textAlign: "center",
               padding: "4px",
               fontSize: { xs: "0.65rem", sm: "0.8rem" },
               wordWrap: "break-word",
@@ -103,10 +102,10 @@ export default function ClassScheduleGrid() {
                     );
 
                     return (
-                      <TableCell key={`${d}-${hour}`}>
+                      <TableCell key={`${d}-${hour}`} sx={{ textAlign: "center" }}>
                         {subjects.map((s, idx) => (
                           <Box key={idx} sx={{ mb: 1, borderRadius: 1, color: "white", boxShadow: 1, bgcolor: "primary.light"}}>
-                            <Typography variant="body2" sx={{ fontSize: { xs: "90%"} }}>
+                            <Typography variant="body2" sx={{ fontSize: { xs: "95%"} }}>
                               {s.sub}
                             </Typography>
                           </Box>
