@@ -6,7 +6,8 @@ const ELibrary = () => {
       boxShadow: 3, 
       borderRadius: 2, 
       backgroundColor: 'background.paper', 
-      color: 'text.primary' 
+      color: 'text.primary',
+      fontSize: '65%'
     }}>
       <Box sx={{
         p: 2,
@@ -20,73 +21,63 @@ const ELibrary = () => {
         </Typography>                
       </Box>
       <Divider />
-      <CardContent>
-        <List dense>
-          <ListItem>
+      <CardContent sx={{ marginTop:'-10px'}}>
+        <List >
             <ListItemText>
               <Link 
                 href="https://www.msumain.edu.ph/library-mini-conference-room-venue-booking/" 
                 target="_blank" 
-                rel="noopener" 
                 color="inherit" 
                 underline="hover"
+                fontSize="70%"
               >
                 MSU Marawi Main Library
               </Link>
             </ListItemText>
-          </ListItem>
-          <ListItem>
             <ListItemText>
               <Link 
                 href="https://www.ebsco.com" 
                 target="_blank" 
-                rel="noopener" 
                 color="inherit" 
                 underline="hover"
+                fontSize="70%"
               >
                 EBSCO Host: Research Databases
               </Link>
             </ListItemText>
-          </ListItem>
-          <ListItem>
             <ListItemText>
               <Link 
                 href="http://iteslj.org" 
                 target="_blank" 
-                rel="noopener" 
                 color="inherit" 
                 underline="hover"
+                fontSize="70%"
               >
                 Internet TESL Journal
               </Link>
             </ListItemText>
-          </ListItem>
-          <ListItem>
             <ListItemText>
               <Link 
                 href="http://www.bibliomania.com" 
                 target="_blank" 
-                rel="noopener" 
                 color="inherit" 
                 underline="hover"
+                fontSize="70%"
               >
                 Bibliomania
               </Link>
             </ListItemText>
-          </ListItem>
-          <ListItem>
             <ListItemText>
               <Link 
                 href="https://www.ibsu.edu.ge/en/scientific-journal/" 
                 target="_blank" 
-                rel="noopener" 
                 color="inherit" 
                 underline="hover"
+                fontSize="70%"
               >
                 IBSU Scientific Journal
               </Link>
             </ListItemText>
-          </ListItem>
         </List>
       </CardContent>
     </Card>

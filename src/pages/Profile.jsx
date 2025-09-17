@@ -57,12 +57,12 @@ export default function Profile() {
       }}
     >
       {/* Profile Hero Section */}
-      <Card sx={{ mb: 4, textAlign: "center", p: 4, boxShadow: 3 }}>
+      <Card sx={{ mb: 4, textAlign: "center", p: 4, boxShadow: 3, bgcolor: "primary.main" }}>
         <Avatar
           sx={{
             width: 100,
             height: 100,
-            bgcolor: "primary.main",
+            bgcolor: "default",
             mx: "auto",
             mb: 2,
             fontSize: "2.5rem",
@@ -70,19 +70,19 @@ export default function Profile() {
         >
           {mockProfileData.firstName[0]}
         </Avatar>
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h4" component="h1" gutterBottom color="white">
           {fullName}
         </Typography>
-        <Typography variant="h6" color="text.secondary">
+        <Typography variant="h6" color="white">
           {mockProfileData.msusidNum}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" color="white">
           {mockProfileData.course}
         </Typography>
       </Card>
       <Grid container spacing={4}>
         {/* Left Column */}
-        <Grid item xs={12} md={6}>
+        <Grid item sx={{ xs: 12, md: 6 }}>
           {/* Personal Information Card */}
           <Card sx={{ mb: 4, boxShadow: 1 }}>
             <CardContent>

@@ -10,7 +10,8 @@ const AcademicStatus = () => {
       boxShadow: 3, 
       borderRadius: 2, 
       bgcolor: 'background.paper', 
-      color: 'text.primary' 
+      color: 'text.primary' ,
+      fontSize: '65%'
     }}>
       <Box sx={{
         p: 2,
@@ -26,19 +27,19 @@ const AcademicStatus = () => {
       <Divider />
       <CardContent>
         <Stack>
-          <Typography variant="body1">
+          <Typography sx={{ fontSize: '100%' }}>
             <strong>Year:</strong> {yearLevel}
           </Typography>
-          <Typography variant="body1">
+          <Typography  sx={{ fontSize: '100%' }}>
             <strong>Status:</strong> {academicStatus.status}
           </Typography>
-          <Typography variant="body1">
+          <Typography  sx={{ fontSize: '100%' }}>
             <strong>Allowed Units:</strong> {academicStatus.allowedUnits}
           </Typography>
-          <Typography variant="body1">
+          <Typography sx={{ fontSize: '100%' }}>
             <strong>Enrolled Units:</strong> {academicStatus.enrolledUnits}
           </Typography>
-          <Typography variant="body1">
+          <Typography  sx={{ fontSize: '100%' }}>
             <strong>Remaining Units:</strong> {academicStatus.remainingUnits}
           </Typography>
         </Stack>

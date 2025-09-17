@@ -8,7 +8,8 @@ const Notices = () => {
       boxShadow: 3, 
       borderRadius: 2, 
       backgroundColor: 'background.paper', 
-      color: 'text.primary' 
+      color: 'text.primary',
+      fontSize: '65%'
     }}>
     <Box sx={{
             p: 2,
@@ -23,7 +24,7 @@ const Notices = () => {
     </Box>
       <Divider />
       <CardContent>
-        <Typography variant="body1">
+        <Typography  sx={{ fontSize: '100%' }}>
           Your student akan account will expire on {mockStudent.accountExpiration}.
         </Typography>
       </CardContent>
