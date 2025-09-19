@@ -15,7 +15,10 @@ export const mockStudent = {
   accountExpiration: "January 28, 2028",
 };
 
-// Mock enrolled subjects
+// mock.js
+export const tuitionRatePerUnit = 1000; // Example rate
+export const miscellaneousFeePerSubject = 500; // Example fee
+
 export const mockEnrolledSubjects = [
   {
     ALIAS: "CCC101",
@@ -25,6 +28,7 @@ export const mockEnrolledSubjects = [
     SCHEDULE: "M 8:30-10:00 W 8:30-10:00",
     ROOM: "Room 101",
     FACULTY: "Prof. Smith",
+    paymentStatus: "paid",
   },
   {
     ALIAS: "CCC100",
@@ -34,6 +38,7 @@ export const mockEnrolledSubjects = [
     SCHEDULE: "M 10:30-13:00 W 10:00-11:30",
     ROOM: "Room 204",
     FACULTY: "Dr. Johnson",
+    paymentStatus: "unpaid",
   },
   {
     ALIAS: "HIST110",
@@ -43,6 +48,7 @@ export const mockEnrolledSubjects = [
     SCHEDULE: "F 13:00-15:00 S 13:00-15:00",
     ROOM: "Room 303",
     FACULTY: "Dr. Reyes",
+    paymentStatus: "paid",
   },
   {
     ALIAS: "IT202",
@@ -52,6 +58,7 @@ export const mockEnrolledSubjects = [
     SCHEDULE: "H 14:00-17:00",
     ROOM: "Room 410",
     FACULTY: "Engr. Tan",
+    paymentStatus: "unpaid",
   },
   {
     ALIAS: "ENG103",
@@ -61,6 +68,7 @@ export const mockEnrolledSubjects = [
     SCHEDULE: "T 13:00-14:30",
     ROOM: "Room 120",
     FACULTY: "Prof. Santos",
+    paymentStatus: "paid",
   },
   {
     ALIAS: "NST001",
@@ -70,8 +78,44 @@ export const mockEnrolledSubjects = [
     SCHEDULE: "A 5:00-8:00",
     ROOM: "Room 120",
     FACULTY: "Prof. Santos",
+    paymentStatus: "unpaid",
   },
 ];
+
+// Function to generate billing data from enrolled subjects
+export const generateBillingData = (subjects) => {
+  const billingItems = subjects.map((subject) => {
+    const tuitionFee = subject.UNITS * tuitionRatePerUnit;
+    const miscellaneousFee = miscellaneousFeePerSubject;
+    const totalDue = tuitionFee + miscellaneousFee;
+    const isPaid = subject.paymentStatus === "paid";
+    const amountPaid = isPaid ? totalDue : 0;
+    const balance = isPaid ? 0 : totalDue;
+
+    return {
+      item: subject.DESCRIPTION,
+      amountDue: totalDue,
+      amountPaid: amountPaid,
+      balance: balance,
+      course: subject.ALIAS,
+      charged: isPaid ? "Yes" : "No",
+    };
+  });
+
+  // Calculate totals for summary
+  const totalDue = billingItems.reduce((sum, item) => sum + item.amountDue, 0);
+  const totalPaid = billingItems.reduce((sum, item) => sum + item.amountPaid, 0);
+  const totalBalance = billingItems.reduce((sum, item) => sum + item.balance, 0);
+
+  return {
+    billingItems,
+    summary: {
+      totalDue,
+      totalPaid,
+      balance: totalBalance,
+    },
+  };
+};
 
 export const mockGrades = [
   {
