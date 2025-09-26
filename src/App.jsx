@@ -41,7 +41,6 @@ function App() {
             element={
               <ProtectedRoute>
                 <MainLayout />
-                <Footer />
               </ProtectedRoute>
             }
           />
