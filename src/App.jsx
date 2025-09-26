@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"; // ✅ added Navigate
+import { AuthProvider, useAuth } from "./AuthContext";
 import {
   AppBar,
   Toolbar,
@@ -21,96 +22,106 @@ import Home from "./components/Home.jsx";
 import Footer from "./components/Footer.jsx";
 import Login from "./pages/Login.jsx";
 
+const ProtectedRoute = ({ children }) => {
+  const { user } = useAuth();
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
+};
+
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
-
   return (
     <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-
-        <Route
-          path="/*"
-          element={
-            <Box sx={{ display: "flex" }}>
-              {/* AppBar only on mobile */}
-              <AppBar
-                position="fixed"
-                sx={{ display: { xs: "block", sm: "none" } }}
-              >
-                <Toolbar>
-                  <IconButton
-                    color="inherit"
-                    edge="start"
-                    onClick={toggleSidebar}
-                    sx={{ mr: 2 }}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                  <Typography variant="h7" noWrap component="div">
-                    MSU-AKAN Student
-                  </Typography>
-                </Toolbar>
-              </AppBar>
-
-              {/* Sidebar (Drawer for mobile) */}
-              <Drawer
-                variant="temporary"
-                open={sidebarOpen}
-                onClose={toggleSidebar}
-                ModalProps={{ keepMounted: true }}
-                sx={{
-                  display: { xs: "block", sm: "none" },
-                  "& .MuiDrawer-paper": { width: 200 },
-                }}
-              >
-                <Sidebar onNavigate={toggleSidebar} />
-              </Drawer>
-
-              {/* Desktop Sidebar */}
-              <Drawer
-                variant="permanent"
-                sx={{
-                  display: { xs: "none", sm: "block" },
-                  "& .MuiDrawer-paper": { width: 200, boxSizing: "border-box" },
-                }}
-                open
-              >
-                <Sidebar />
-              </Drawer>
-
-              {/* Main content */}
-              <Box
-                component="main"
-                sx={{
-                  flexGrow: 1,
-                  p: { xs: 1, sm: 0 },
-                  ml: { sm: "210px" },
-                  mt: { xs: 8, sm: 0 },
-                }}
-              >
-                <Routes>
-                  <Route path="/" element={<Navigate to="/login" replace />} />
-                  <Route path="/home" element={<Home />} />
-                  <Route path="/grades" element={<Grades />} />
-                  <Route path="/evaluation" element={<Evaluation />} />
-                  <Route path="/schedule" element={<Schedule />} />
-                  <Route path="/billing" element={<Billing />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/offline" element={<OfflineNotice />} />
-                </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/*"
+            element={
+              <ProtectedRoute>
+                <MainLayout />
                 <Footer />
-              </Box>
-            </Box>
-          }
-        />
-      </Routes>
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
     </Router>
   );
 }
+
+const MainLayout = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
+  return (
+    <Box sx={{ display: "flex" }}>
+      <AppBar
+        position="fixed"
+        sx={{ display: { xs: "block", sm: "none" } }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            edge="start"
+            onClick={toggleSidebar}
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h7" noWrap component="div">
+            MSU-AKAN Student
+          </Typography>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer
+        variant="temporary"
+        open={sidebarOpen}
+        onClose={toggleSidebar}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: "block", sm: "none" },
+          "& .MuiDrawer-paper": { width: 200 },
+        }}
+      >
+        <Sidebar onNavigate={toggleSidebar} />
+      </Drawer>
+
+      <Drawer
+        variant="permanent"
+        sx={{
+          display: { xs: "none", sm: "block" },
+          "& .MuiDrawer-paper": { width: 200, boxSizing: "border-box" },
+        }}
+        open
+      >
+        <Sidebar />
+      </Drawer>
+
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: { xs: 1, sm: 0 },
+          ml: { sm: "210px" },
+          mt: { xs: 8, sm: 0 },
+        }}
+      >
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/grades" element={<Grades />} />
+          <Route path="/evaluation" element={<Evaluation />} />
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/billing" element={<Billing />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/offline" element={<OfflineNotice />} />
+        </Routes>
+        <Footer />
+      </Box>
+    </Box>
+  );
+};
 
 export default App;

@@ -23,7 +23,6 @@ import {
   generateBillingData,
 } from "../data/mockSchedule";
 
-// Mock data for filters
 const semesters = ["1st Semester", "2nd Semester", "Summer"];
 const academicYears = [2024, 2023, 2022];
 
@@ -35,14 +34,12 @@ export default function Billing() {
   const [summary, setSummary] = useState({ totalDue: 0, totalPaid: 0, balance: 0 });
 
   const handleViewBilling = () => {
-    // Generate billing data based on the mock enrolled subjects
     const { billingItems, summary } = generateBillingData(mockEnrolledSubjects);
     setBillingData(billingItems);
     setSummary(summary);
   };
 
   useEffect(() => {
-    // Initial data load on component mount
     handleViewBilling();
   }, []);
 

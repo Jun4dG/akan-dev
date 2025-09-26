@@ -13,8 +13,11 @@ import Notices from "./Notices";
 import { mockProfileData } from "../data/mockSchedule";
 import ClassScheduleGrid from "./ClassScheduleGrid";
 import ELibrary from "./E-LibraryLinkages";
+import { useAuth } from "../AuthContext";
 
 const  Home = () => {
+  const { user } = useAuth();
+
   return (
     <Box
       sx={{
@@ -39,7 +42,7 @@ const  Home = () => {
           </Avatar>
           <Box>
             <Typography variant="h6" fontWeight="bold">
-              Welcome back, {mockProfileData.firstName}!
+              Welcome back, {user ? user.FIRSTNAME + " " + user.LASTNAME : "Student"}!
             </Typography>
             <Typography variant="body2" color="white">
               Student Portal · Mindanao State University
