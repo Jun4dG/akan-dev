@@ -11,17 +11,30 @@ import {
   Paper,
   TextField,
   Typography,
+  InputAdornment,
+  IconButton,
 } from "@mui/material";
 import msuGateBackground from "../assets/msu-gate.jpg"
 import Footer from "../components/Footer"
+import { Visibility } from "@mui/icons-material";
+import { VisibilityOff } from "@mui/icons-material";
 
 const LoginPage = () => {
   const [idNumber, setIdNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const handleClickShowPassword = () => {
+    setShowPassword((show) => !show);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
@@ -79,12 +92,30 @@ const LoginPage = () => {
 
               <TextField
                 label="Password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 fullWidth
                 margin="normal"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                
+                slotProps={{
+                  input: {
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                        sx={{ color: 'black' }}
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                },
+              }}
               />
 
               <FormControlLabel
