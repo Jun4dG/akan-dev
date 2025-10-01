@@ -22,7 +22,7 @@ import logo from "../assets/images/logo.png";
 
 const Sidebar = ({ onNavigate }) => {
   const navItems = [
-    { text: "Home", path: "/", icon: <HomeIcon /> },
+    { text: "Home", path: "/home", icon: <HomeIcon /> },
     { text: "Grades", path: "/grades", icon: <GradeIcon /> },
     { text: "Evaluation", path: "/evaluation", icon: <AssignmentTurnedInIcon /> },
     { text: "Schedule", path: "/schedule", icon: <ScheduleIcon /> },
